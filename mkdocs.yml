@@ -1,0 +1,129 @@
+site_name: 政大通 NCCUpass | 後端組新人手冊
+site_description: 國立政治大學政大通團隊後端組新人培訓指南、學習資源與 Onboarding Task
+site_author: NCCUpass Backend Team
+site_url: https://nccupass.github.io/backend-onboarding/
+repo_name: NCCUpass/backend-onboarding
+repo_url: https://github.com/NCCUpass/backend-onboarding
+
+theme:
+  name: material
+  language: zh-Hant
+  palette:
+    # 淺色模式
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: 切換為深色模式
+    # 深色模式
+    - scheme: slate
+      primary: indigo
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: 切換為淺色模式
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/NCCUpass
+    - icon: fontawesome/solid/globe
+      link: https://nccupass.com
+
+copyright: Copyright &copy; 2024 NCCUpass Team
+
+nav:
+  - 首頁: index.md
+  - 關於團隊:
+    - 團隊文化與敏捷思維: intro/culture.md
+    - 新人第一週 Checklist: intro/getting-started.md
+  - 環境建置:
+    - Git 與 GitHub: setup/git-github.md
+    - Python 開發環境: setup/python-env.md
+    - VS Code 推薦配置: setup/vscode.md
+    - 資料庫與工具: setup/database.md
+  - 學習資源:
+    - 01. Web 與 HTTP 基礎: roadmap/01-web-basics.md
+    - 02. Python 現代特性: roadmap/02-python-modern.md
+    - 03. FastAPI 核心觀念: roadmap/03-fastapi-core.md
+    - 04. MySQL 與 ORM: roadmap/04-database-orm.md
+    - 05. Git 協作與 PR 流程: roadmap/05-git-workflow.md
+  - Onboarding 實戰任務:
+    - 任務總覽與規則: task/overview.md
+    - Sprint 1 - 環境與資料模型: task/sprint-1.md
+    - Sprint 2 - CRUD 核心 API: task/sprint-2.md
+    - Sprint 3 - 驗證與例外處理: task/sprint-3.md
+    - Sprint 4 - 認證與使用者隔離: task/sprint-4.md
+    - Sprint 5 - 測試與繳交 PR: task/sprint-5.md
+  - API 規格書:
+    - 備忘錄系統 API 規格: specs/memo-api.md
+  - 團隊開發規範:
+    - Git Commit 訊息規範: standards/git-commit.md
+    - Pull Request 與 Code Review: standards/pr-guideline.md
+    - FastAPI 專案架構規範: standards/project-structure.md
+  - 常見問題:
+    - 常見問題與 FAQ: faq.md
