@@ -1,0 +1,22 @@
+/* Mermaid 圖表顯示優化 */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
+
+.mermaid svg {
+  min-width: 60%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  font-size: 16px;
+}
+
+/* 提升深色與淺色模式下的圖表文字與方塊可讀性 */
+[data-md-color-scheme="slate"] .mermaid svg {
+  filter: brightness(0.95);
+}
