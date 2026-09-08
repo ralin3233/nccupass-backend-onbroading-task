@@ -77,7 +77,7 @@ sequenceDiagram
 
 ---
 
-## 外部推薦優質資源
+## 外部推薦優質資源 (施工中)
 - [MDN Web Docs: HTTP 概述 (繁中)](https://developer.mozilla.org/zh-TW/docs/Web/HTTP/Overview)
 - [RESTful API 設計指南 (簡中)](https://www.ruanyifeng.com/blog/2014/05/restful_api.html)
 - [CS50 - HTTP & Web Basics (YouTube)](https://www.youtube.com/results?search_query=CS50+HTTP)

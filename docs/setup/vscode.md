@@ -4,7 +4,7 @@ Visual Studio Code (VS Code) 是政大通後端組推薦的標準開發工具。
 
 ---
 
-## 必備擴充套件（Extensions）
+## 參考擴充套件（Extensions）
 
 請在 VS Code 側邊欄的 **Extensions**（快捷鍵 ++ctrl+shift+x++ 或 ++cmd+shift+x++）中搜尋並安裝以下套件：
 

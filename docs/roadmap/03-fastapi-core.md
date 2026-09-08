@@ -101,7 +101,7 @@ def get_my_memos(current_user: dict = Depends(get_current_user_token)):
 
 ---
 
-## 外部推薦優質資源
+## 外部推薦優質資源 (施工中)
 - [FastAPI 官方完整教學 (繁中/簡中)](https://fastapi.tiangolo.com/zh/)
 - [FastAPI Course for Beginners (freeCodeCamp YouTube)](https://www.youtube.com/watch?v=tLKKmouUAMS)
 - [Tiangolo (FastAPI 作者) 經典教學文章](https://tiangolo.com/)

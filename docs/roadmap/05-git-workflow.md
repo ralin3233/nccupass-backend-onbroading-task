@@ -85,6 +85,6 @@ git push origin feat/add-memo-api
 
 ---
 
-## 外部推薦優質資源
+## 外部推薦優質資源 (施工中)
 - [為你自己學 Git (高見龍老師經典繁中教學)](https://gitbook.tw/)
 - [Learn Git Branching (視覺化互動闖關遊戲)](https://learngitbranching.js.org/?locale=zh_TW)

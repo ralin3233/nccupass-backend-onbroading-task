@@ -78,7 +78,7 @@ async def fetch_student_data(student_id: str) -> dict:
 
 ---
 
-## 外部推薦優質資源
+## 外部推薦優質資源 (施工中)
 - [Pydantic 官方文件 (英文)](https://docs.pydantic.dev/latest/)
 - [FastAPI 官方文檔 - Python 型別介紹 (繁中/簡中)](https://fastapi.tiangolo.com/zh/python-types/)
 - [Python Async/Await 快速入門 (YouTube)](https://www.youtube.com/results?search_query=python+async+await+tutorial)

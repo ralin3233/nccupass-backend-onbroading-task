@@ -115,7 +115,7 @@ def delete_memo(db: Session, memo_id: int) -> bool:
 
 ---
 
-## 外部推薦優質資源
+## 外部推薦優質資源 (施工中)
 - [SQLAlchemy 2.0 官方文件 (英文)](https://docs.sqlalchemy.org/en/20/)
 - [FastAPI 官方文檔 - SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
 - [Alembic 官方教學 (英文)](https://alembic.sqlalchemy.org/en/latest/tutorial.html)
