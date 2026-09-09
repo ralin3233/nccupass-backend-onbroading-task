@@ -2,94 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/faq/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/intro/culture/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/intro/getting-started/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/roadmap/01-web-basics/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/roadmap/02-python-modern/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/roadmap/03-fastapi-core/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/roadmap/04-database-orm/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/roadmap/05-git-workflow/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/setup/database/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/setup/git-github/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/setup/python-env/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/setup/vscode/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/specs/memo-api/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/standards/git-commit/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/standards/pr-guideline/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/standards/project-structure/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/task/overview/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/task/sprint-1/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
     <url>
          <loc>https://nccupass.github.io/backend-onboarding/task/sprint-2/</loc>
-         <lastmod>2026-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://nccupass.github.io/backend-onboarding/task/sprint-3/</loc>
-         <lastmod>2026-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://nccupass.github.io/backend-onboarding/task/sprint-4/</loc>
-         <lastmod>2026-09-08</lastmod>
-    </url>
-    <url>
-         <loc>https://nccupass.github.io/backend-onboarding/task/sprint-5/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-09</lastmod>
     </url>
 </urlset>
