@@ -64,7 +64,7 @@ mkdocs build --strict
 │   ├── intro/                      # 團隊簡介與文化
 │   ├── setup/                      # 開發環境安裝指南
 │   ├── roadmap/                    # 基礎學習資源與觀念
-│   ├── task/                       # Onboarding Task (Sprint 1 ~ 5)
+│   ├── task/                       # Onboarding Task (Sprint 1 ~ 2)
 │   ├── specs/                      # API 規格書
 │   ├── standards/                  # 團隊協作與程式碼規範
 │   └── faq.md                      # 常見問題

@@ -1,82 +1,158 @@
-# Sprint 1 - 環境與資料模型設計
+# Sprint 1 - 基礎 CRUD API 與 Schemas 實作
 
-> **Sprint 目標**：建立乾淨的專案目錄架構、設定環境變數、連線至 MySQL 資料庫，並透過 SQLAlchemy 定義 `Memo` 資料表模型。
+> **Sprint 目標**：在既有的資料庫模型與連線基礎下，定義 Pydantic 資料結構（Schemas）、實作備忘錄的核心建立、單筆查詢與刪除 API 端點，並撰寫基礎自動化測試。
+
+---
+
+## 前置說明
+
+在 Starter 專案中，Mentor 已經幫你準備好了：
+- `app/database.py`：資料庫連線引擎與 Session 依賴項（`get_db`）
+- `app/models/memo.py`：SQLAlchemy `Memo` 資料表模型（包含 `id`, `title`, `content`, `is_completed`, `priority`, `created_at`, `updated_at` 欄位）
+
+**你的任務是專注在 API 路由、Pydantic 轉換、CRUD 邏輯與測試！**
 
 ---
 
 ## 任務清單 (Task Checklist)
 
-- [ ] 建立專案目錄與 Python 虛擬環境 (`.venv`)
-- [ ] 安裝核心依賴：`fastapi`, `uvicorn[standard]`, `sqlalchemy`, `pymysql`, `python-dotenv`, `pydantic-settings`
-- [ ] 建立 `.env` 與 `.env.example`，避免敏感密碼進 Git
-- [ ] 撰寫 `database.py` 建立 MySQL 連線池與 `Base`
-- [ ] 撰寫 `models/memo.py` 定義 Memo ORM Model
-- [ ] 撰寫 `main.py` 並實作 `/health` 端點測試資料庫連線
-- [ ] 啟動專案，確認 Swagger UI (`/docs`) 正常運行且 MySQL 資料表成功建立
+- [ ] **定義 Pydantic Schemas** (`app/schemas/memo.py`)
+    - [ ] `MemoBase`：基礎共用欄位
+    - [ ] `MemoCreate`：建立備忘錄請求格式
+    - [ ] `MemoResponse`：回傳單筆備忘錄格式（設定 `from_attributes=True`）
+- [ ] **實作 CRUD 資料存取函式** (`app/crud/memo.py`)
+    - [ ] `create_memo(db, memo_in)`：建立新備忘錄並寫入資料庫
+    - [ ] `get_memo_by_id(db, memo_id)`：依 ID 查詢單筆備忘錄
+    - [ ] `delete_memo(db, memo_id)`：刪除指定備忘錄
+- [ ] **實作 FastAPI 路由端點** (`app/routers/memos.py`)
+    - [ ] `POST /api/v1/memos`：建立備忘錄（回傳 `201 Created`）
+    - [ ] `GET /api/v1/memos/{id}`：取得單筆備忘錄（查無資料回傳 `404 Not Found`）
+    - [ ] `DELETE /api/v1/memos/{id}`：刪除備忘錄（回傳 `204 No Content`，查無資料回傳 `404`）
+- [ ] **撰寫單元測試** (`tests/test_memos_basic.py`)
+    - [ ] 使用 `TestClient` 測試建立、單筆查詢與刪除流程
+    - [ ] 執行 `pytest` 確保所有測試通過
 
 ---
 
 ## 實作指引
 
-### 1. 專案目錄結構
-
-建議初始化目錄結構如下：
-```text
-nccupass-memo-service/
-├── app/
-│   ├── core/
-│   │   └── config.py        # 讀取 .env 設定
-│   ├── models/
-│   │   └── memo.py          # SQLAlchemy ORM Model
-│   ├── schemas/
-│   │   └── memo.py          # Pydantic Schemas (Sprint 2 擴充)
-│   ├── database.py          # 資料庫連線引擎
-│   └── main.py              # FastAPI 進入點
-├── .env                     # 本地連線機密 (加入 .gitignore)
-├── .env.example             # 設定範本
-├── .gitignore
-└── requirements.txt
-```
-
-### 2. 環境變數設定 (`app/core/config.py`)
-
-使用 `pydantic-settings` 優雅管理環境變數：
+### 1. Pydantic Schemas 設計 (`app/schemas/memo.py`)
 
 ```python
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field
 
-class Settings(BaseSettings):
-    PROJECT_NAME: str = "NCCUpass Memo Service"
-    DB_HOST: str = "localhost"
-    DB_PORT: int = 3306
-    DB_USER: str = "nccu_user"
-    DB_PASSWORD: str = "nccu_password"
-    DB_NAME: str = "nccu_memo_db"
+# 基礎共用屬性
+class MemoBase(BaseModel):
+    title: str = Field(..., min_length=1, max_length=100, description="備忘錄標題")
+    content: str | None = Field(None, description="備忘錄內文")
+    priority: int = Field(default=1, ge=1, le=5, description="優先級 (1~5)")
 
-    @property
-    def DATABASE_URL(self) -> str:
-        return f"mysql+pymysql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+# 建立請求 Schema
+class MemoCreate(MemoBase):
+    pass
 
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+# 回應 Schema (將 SQLAlchemy ORM 物件序列化為 JSON)
+class MemoResponse(MemoBase):
+    id: int
+    is_completed: bool
+    created_at: datetime
+    updated_at: datetime
 
-settings = Settings()
+    model_config = ConfigDict(from_attributes=True)
 ```
 
-### 3. Memo 資料表規格需求
+### 2. CRUD 函式封裝 (`app/crud/memo.py`)
 
-`models/memo.py` 需包含以下欄位：
-- `id`：整數主鍵（Auto Increment）
-- `title`：字串，最長 100 字，必填，建立索引
-- `content`：長文字，選填
-- `is_completed`：布林值，預設為 `False`
-- `priority`：整數 (1~5)，預設為 1
-- `created_at`：時間戳記，預設為當前 UTC 時間
-- `updated_at`：時間戳記，更新時自動帶入當前 UTC 時間
+將資料庫的存取邏輯封裝在 CRUD 函式中，讓 Router 保持簡潔：
+
+```python
+from sqlalchemy.orm import Session
+from app.models.memo import Memo
+from app.schemas.memo import MemoCreate
+
+def create_memo(db: Session, memo_in: MemoCreate) -> Memo:
+    db_memo = Memo(**memo_in.model_dump())
+    db.add(db_memo)
+    db.commit()
+    db.refresh(db_memo)
+    return db_memo
+
+def get_memo_by_id(db: Session, memo_id: int) -> Memo | None:
+    return db.query(Memo).filter(Memo.id == memo_id).first()
+
+def delete_memo(db: Session, db_memo: Memo) -> None:
+    db.delete(db_memo)
+    db.commit()
+```
+
+### 3. API 路由端點 (`app/routers/memos.py`)
+
+```python
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
+from app.database import get_db
+from app.crud import memo as crud_memo
+from app.schemas.memo import MemoCreate, MemoResponse
+
+router = APIRouter(prefix="/api/v1/memos", tags=["Memos"])
+
+@router.post("", response_model=MemoResponse, status_code=status.HTTP_201_CREATED)
+def create_memo(memo_in: MemoCreate, db: Session = Depends(get_db)):
+    return crud_memo.create_memo(db=db, memo_in=memo_in)
+
+@router.get("/{memo_id}", response_model=MemoResponse)
+def get_memo(memo_id: int, db: Session = Depends(get_db)):
+    memo = crud_memo.get_memo_by_id(db=db, memo_id=memo_id)
+    if not memo:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="找不到指定的備忘錄")
+    return memo
+
+@router.delete("/{memo_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_memo(memo_id: int, db: Session = Depends(get_db)):
+    memo = crud_memo.get_memo_by_id(db=db, memo_id=memo_id)
+    if not memo:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="找不到指定的備忘錄")
+    crud_memo.delete_memo(db=db, db_memo=memo)
+    return None
+```
+
+### 4. 撰寫自動化測試 (`tests/test_memos_basic.py`)
+
+使用 FastAPI 提供的 `TestClient` 撰寫測試案例：
+
+```python
+from fastapi.testclient import TestClient
+from app.main import app
+
+client = TestClient(app)
+
+def test_create_and_get_memo():
+    # 1. 建立備忘錄
+    res = client.post("/api/v1/memos", json={"title": "買牛奶", "content": "全脂鮮乳", "priority": 2})
+    assert res.status_code == 201
+    data = res.json()
+    assert data["title"] == "買牛奶"
+    memo_id = data["id"]
+
+    # 2. 查詢該備忘錄
+    get_res = client.get(f"/api/v1/memos/{memo_id}")
+    assert get_res.status_code == 200
+    assert get_res.json()["id"] == memo_id
+
+    # 3. 刪除該備忘錄
+    del_res = client.delete(f"/api/v1/memos/{memo_id}")
+    assert del_res.status_code == 204
+
+    # 4. 再次查詢確認已不存在
+    not_found_res = client.get(f"/api/v1/memos/{memo_id}")
+    assert not_found_res.status_code == 404
+```
 
 ---
 
 ## 驗收條件 (Acceptance Criteria)
 
-1. 執行 `uvicorn app.main:app --reload` 能夠正常無報錯啟動。
-2. 訪問 `GET http://localhost:8000/health` 能回傳 `{"status": "healthy", "database": "connected"}`。
-3. 開啟 DBeaver 查看 MySQL 資料庫，確認已成功生成 `memos` 資料表與對應欄位。
+1. 啟動伺服器後，能於 Swagger UI (`http://localhost:8000/docs`) 正常操作 `POST`, `GET /{id}`, `DELETE /{id}` 端點。
+2. 開啟 **TablePlus**（`Ctrl+R` / `Cmd+R` 重新整理），能看到 `memos` 資料表中確實有寫入對應的資料列與欄位值。
+3. 執行 `pytest tests/test_memos_basic.py`，所有測試通過並顯示綠燈（All Passed）。

@@ -11,7 +11,7 @@
 - [ ] 取得政大通 GitHub Organization 邀請並加入團隊
 - [ ] 安裝 Python 3.11+ 並確認終端機能正常執行 `python --version`
 - [ ] 安裝 VS Code 與推薦擴充套件（Python, Pylance, Black, GitLens）
-- [ ] 下載並安裝資料庫圖形工具（推薦 DBeaver 或 DataGrip）
+- [ ] 下載並安裝資料庫圖形工具（推薦 TablePlus，參考 [資料庫連線工具指南](../setup/database.md)）
 
 ---
 
@@ -27,11 +27,8 @@
 ## 第三天至第五天：啟動 Onboarding Task (Day 3 ~ 5)
 
 - [ ] 詳讀 [Onboarding 任務總覽](../task/overview.md) 與 [API 規格書](../specs/memo-api.md)
-- [ ] **完成 Sprint 1**：專案初始化、連線測試 MySQL、定義 Memo 資料模型
-- [ ] **完成 Sprint 2**：實作備忘錄 CRUD 核心端點
-- [ ] **完成 Sprint 3**：加入 Pydantic 資料驗證與自訂錯誤回應
-- [ ] **完成 Sprint 4**：實作 JWT 登入與使用者資料隔離
-- [ ] **完成 Sprint 5**：撰寫 pytest 測試，開出你的第一個 PR！
+- [ ] **完成 Sprint 1**：實作基礎 Pydantic Schemas、CRUD 端點（建立/單筆查詢/刪除）與基礎測試
+- [ ] **完成 Sprint 2**：實作列表多條件篩選（分頁/狀態/搜尋）、PATCH 部分更新與進階測試，並開出 PR 繳交！
 
 ---
 

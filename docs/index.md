@@ -39,7 +39,7 @@ graph LR
 | [**關於團隊**](intro/culture.md) | 團隊文化、敏捷開發思維與新人第一週 Checklists | Day 1 |
 | [**環境建置**](setup/git-github.md) | Git, SSH, Python 虛擬環境, VS Code, MySQL 連線工具 | Day 1 ~ 2 |
 | [**學習資源**](roadmap/01-web-basics.md) | HTTP, Type Hints, FastAPI 核心, ORM 與 Git 工作流 | Week 1 |
-| [**實戰任務**](task/overview.md) | 5 個 Sprint 實作「政大通備忘錄系統」 | Week 1 ~ 2 |
+| [**實戰任務**](task/overview.md) | 2 個 Sprint 實作「政大通備忘錄系統」 | Week 1 |
 | [**API 規格書**](specs/memo-api.md) | 備忘錄系統之 RESTful API 端點與資料規格 | 隨時查閱 |
 | [**團隊規範**](standards/git-commit.md) | Conventional Commits, PR 範本, 架構分層標準 | 隨時查閱 |
 | [**常見問題**](faq.md) | 開發過程中常見錯誤與排除技巧 | 隨時查閱 |
