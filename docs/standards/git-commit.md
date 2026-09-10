@@ -14,7 +14,12 @@
 [optional footer(s)]
 ```
 
-### 範例：
+### 範例1：
+```text
+feat: add get all memos API
+```
+
+### 範例2：
 ```text
 feat(auth): implement JWT token generation and login endpoint
 

@@ -38,7 +38,7 @@ graph LR
 | :--- | :--- | :--- |
 | [**關於團隊**](intro/culture.md) | 團隊文化、敏捷開發思維與新人第一週 Checklists | Day 1 |
 | [**環境建置**](setup/git-github.md) | Git, SSH, Python 虛擬環境, VS Code, MySQL 連線工具 | Day 1 ~ 2 |
-| [**學習資源**](roadmap/01-web-basics.md) | HTTP, Type Hints, FastAPI 核心, ORM 與 Git 工作流 | Week 1 |
+| [**學習資源**](roadmap/01-web-basics.md) | HTTP, Type Hints, FastAPI 核心, ORM, Git 工作流與專案架構解析 | Week 1 |
 | [**實戰任務**](task/overview.md) | 2 個 Sprint 實作「政大通備忘錄系統」 | Week 1 |
 | [**API 規格書**](specs/memo-api.md) | 備忘錄系統之 RESTful API 端點與資料規格 | 隨時查閱 |
 | [**團隊規範**](standards/git-commit.md) | Conventional Commits, PR 範本, 架構分層標準 | 隨時查閱 |
@@ -50,7 +50,7 @@ graph LR
 
 在政大通，主動提問是工程師最重要的軟實力之一。
 
-- **Discord 頻道**：`#backend-dev` / `#onboarding-help`
+- **Discord 頻道**：`#後端組`
 - **你的 Mentor**：指派給你的後端組長或學長姐
 - **求助守則**：請參考 [發問的藝術與提問範本](intro/culture.md#asking-for-help)
 

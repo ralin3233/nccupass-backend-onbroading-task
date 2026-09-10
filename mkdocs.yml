@@ -112,6 +112,7 @@ nav:
     - 03. FastAPI 核心觀念: roadmap/03-fastapi-core.md
     - 04. MySQL 與 ORM: roadmap/04-database-orm.md
     - 05. Git 協作與 PR 流程: roadmap/05-git-workflow.md
+    - 06. 專案架構與根目錄檔案解析: roadmap/06-project-structure.md
   - Onboarding 實戰任務:
     - 任務總覽與規則: task/overview.md
     - Sprint 1 - 基礎 CRUD API 與 Schemas: task/sprint-1.md
@@ -121,6 +122,5 @@ nav:
   - 團隊開發規範:
     - Git Commit 訊息規範: standards/git-commit.md
     - Pull Request 與 Code Review: standards/pr-guideline.md
-    - FastAPI 專案架構規範: standards/project-structure.md
   - 常見問題:
     - 常見問題與 FAQ: faq.md
