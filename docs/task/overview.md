@@ -92,8 +92,15 @@ nccupass-memo-service/
 
 ## 任務繳交與驗收方式
 
-1. **Clone Starter 專案**：從團隊提供的 Starter 範本 Repository 開始開發。
+1. **Clone Starter 練習專案**：
+   從團隊提供的 Starter 範本 Repository 開始開發：
+   ```bash
+   git clone https://gitlab.com/nccupass/nccupass-memo-service-for-beginner.git
+   cd nccupass-memo-service-for-beginner
+   ```
+   > 練習用 Repo 連結：[nccupass-memo-service-for-beginner (GitLab)](https://gitlab.com/nccupass/nccupass-memo-service-for-beginner.git)
+
 2. **遵守分支與 Commit 規範**：依據 Sprint 開發分支（例如 `feat/sprint-1-basic-api`、`feat/sprint-2-list-and-update`）。
-3. **完成後發起 M0R**：發起 MR 並 Tag 你的 Mentor，在 PR 描述中附上 `pytest` 綠燈截圖或 Swagger `/docs` 測試結果。
-4. **Code Review**：Mentor會給予程式碼架構與優化建議，確認過後會將你的branch合併到main，，討論並修改完成後即算過關！
-5. **進度匯報**：每個sprint結束後會開會請各位講解這個sprint做了甚麼並DEMO。
+3. **完成後發起 MR**：發起 Merge Request (MR) 並 Tag 你的 Mentor，在 MR 描述中附上 `pytest` 綠燈截圖或 Swagger `/docs` 測試結果。
+4. **Code Review**：Mentor 會給予程式碼架構與優化建議，討論並修改完成後即算過關！確認後會將你的分支合併到 `main`。
+5. **進度匯報**：每個 Sprint 結束後會開會請各位講解這個 Sprint 做了什麼並 DEMO。

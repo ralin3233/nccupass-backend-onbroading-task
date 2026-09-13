@@ -6,6 +6,15 @@
 
 ## 前置說明
 
+開始前，請確保你已 Clone 練習用專案 Repo：
+
+```bash
+git clone https://gitlab.com/nccupass/nccupass-memo-service-for-beginner.git
+cd nccupass-memo-service-for-beginner
+```
+
+> 練習用 Repo：[nccupass-memo-service-for-beginner (GitLab)](https://gitlab.com/nccupass/nccupass-memo-service-for-beginner.git)
+
 在 Starter 專案中，Mentor 已經幫你準備好了：
 - `app/database.py`：資料庫連線引擎與 Session 依賴項（`get_db`）
 - `app/models/memo.py`：SQLAlchemy `Memo` 資料表模型（包含 `id`, `title`, `content`, `is_completed`, `priority`, `created_at`, `updated_at` 欄位）

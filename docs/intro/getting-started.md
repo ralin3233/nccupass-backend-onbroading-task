@@ -27,8 +27,9 @@
 ## 第三天至第五天：啟動 Onboarding Task (Day 3 ~ 5)
 
 - [ ] 詳讀 [Onboarding 任務總覽](../task/overview.md) 與 [API 規格書](../specs/memo-api.md)
+- [ ] Clone [練習用專案 Repo (GitLab)](https://gitlab.com/nccupass/nccupass-memo-service-for-beginner.git) 並建立虛擬環境
 - [ ] **完成 Sprint 1**：實作基礎 Pydantic Schemas、CRUD 端點（建立/單筆查詢/刪除）與基礎測試
-- [ ] **完成 Sprint 2**：實作列表多條件篩選（分頁/狀態/搜尋）、PATCH 部分更新與進階測試，並開出 PR 繳交！
+- [ ] **完成 Sprint 2**：實作列表多條件篩選（分頁/狀態/搜尋）、PATCH 部分更新與進階測試，並開出 MR 繳交！
 
 ---
 
