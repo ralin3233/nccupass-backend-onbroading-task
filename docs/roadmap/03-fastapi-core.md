@@ -105,3 +105,4 @@ def get_my_memos(current_user: dict = Depends(get_current_user_token)):
 - [FastAPI 官方完整教學 (繁中/簡中)](https://fastapi.tiangolo.com/zh/)
 - [FastAPI Course for Beginners (freeCodeCamp YouTube)](https://www.youtube.com/watch?v=tLKKmouUAMS)
 - [Tiangolo (FastAPI 作者) 經典教學文章](https://tiangolo.com/)
+- [FastAPI 框架快速學習](https://www.bilibili.com/video/BV1Ya4y1D7et/?share_source=copy_web&vd_source=d3acd1a0c44de5a210db2038fc657e1c)
