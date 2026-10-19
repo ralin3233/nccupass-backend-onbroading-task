@@ -113,6 +113,7 @@ nav:
     - 04. MySQL 與 ORM: roadmap/04-database-orm.md
     - 05. Git 協作與 PR 流程: roadmap/05-git-workflow.md
     - 06. 專案架構與根目錄檔案解析: roadmap/06-project-structure.md
+    - 07. 其他學習資源與進階主題: roadmap/07-others.md
   - Onboarding 實戰任務:
     - 任務總覽與規則: task/overview.md
     - Sprint 1 - 基礎 CRUD API 與 Schemas: task/sprint-1.md
